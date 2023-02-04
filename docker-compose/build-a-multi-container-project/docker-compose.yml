@@ -1,0 +1,30 @@
+version: '3.1'
+
+services:
+  drupal:
+    image: drupal
+    ports: 
+      - 8080:80
+    volumes:
+      # - ./drupal-data:/var/www/html
+      - drupal-modules:/var/www/html/modules
+      - drupal-profiles:/var/www/html/profiles
+      - drupal-sites:/var/www/html/sites
+      - drupal-themes:/var/www/html/themes
+  postgres:
+    image: postgres:11
+    environment:
+      POSTGRES_PASSWORD: 1lll14050806$$
+
+volumes:
+  #drupal-data:
+  drupal-modules:
+  drupal-profiles:
+  drupal-sites:
+  drupal-themes:
+    
+# to running this so:
+# docker compose up
+# after to test it son:
+# docker compose down -v
+# -v is to remove all volumes
